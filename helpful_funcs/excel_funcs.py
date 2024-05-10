@@ -244,6 +244,7 @@ class ReadExcel:
         y_df['Timedelta'] = timedelta
 
     	# add timedelta as feature
+    	x_df['sum_hours'] = 1
     	#x_df['hours'] = x_df.merge(y_df['Timedelta'], left_index=True, right_index=True, how='left')
 	    
         baseline = self.get_baseline(normalize = False)
