@@ -17,9 +17,7 @@ def _string(h):
 
 class Aggregator:
     
-    weather_agg = {'From (incl)': ['min'],
-                   'To (excl)': ['max'],
-                   'temp': ['mean', 'max', 'min','std'],
+    weather_agg = {'temp': ['mean', 'max', 'min','std'],
                    'dwpt': ['mean', 'max', 'min','std'],
                    'rhum': ['mean', 'max', 'min','std'],
                    'prcp': ['sum','mean', 'max', 'min','std'],
