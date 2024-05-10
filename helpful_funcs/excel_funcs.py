@@ -202,7 +202,7 @@ class ReadExcel:
                                                                        self.features,
                                                                        {col: ['sum', 'mean', 'max', 'min','std'] for col in self.features.columns[2:]})
         
-        float_cols = weather_features.select_dtypes(include=['float64', 'number']).columns
+        #float_cols = weather_features.select_dtypes(include=['float64', 'number']).columns
         
         weather_features.loc[:, float_cols] = weather_features.loc[:, float_cols].fillna(0)
         
