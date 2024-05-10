@@ -230,8 +230,8 @@ class ReadExcel:
 	    
         features = features.astype(np.float64)
 
-        x_df = features
-        y_df = baseline
+        x_df = features.reset_index()
+        y_df = baseline.reset_index()
         
         # clean_col = CleanColumns(x_df)
         # x_df = clean_col.remove_bad_columns()
@@ -244,7 +244,7 @@ class ReadExcel:
         y_df['Timedelta'] = timedelta
 
     	# add timedelta as feature
-    	#x_df['hours'] = x_df.merge(y_df['Timedelta'], left_index=True, right_index=True, how='left')
+    	x_df['hours'] = x_df.merge(y_df['Timedelta'], left_index=True, right_index=True, how='left')
 	    
         baseline = self.get_baseline(normalize = False)
 
