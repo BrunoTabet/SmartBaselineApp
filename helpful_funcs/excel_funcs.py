@@ -229,6 +229,7 @@ class ReadExcel:
 
 	    
         features = features.astype(np.float64)
+    	features['test'] = 1.0
 
         x_df = features.reset_index()
         y_df = baseline.reset_index()
@@ -244,7 +245,7 @@ class ReadExcel:
         y_df['Timedelta'] = timedelta
 
     	# add timedelta as feature
-    	x_df['hours'] = 1 #x_df.merge((y_df['To (excl)']-y_df['From (incl)']).total_seconds(), left_index=True, right_index=True, how='left')
+    	#x_df['hours'] = 1 #x_df.merge((y_df['To (excl)']-y_df['From (incl)']).total_seconds(), left_index=True, right_index=True, how='left')
 	    
         baseline = self.get_baseline(normalize = False)
 
