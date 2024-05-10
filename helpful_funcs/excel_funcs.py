@@ -227,7 +227,7 @@ class ReadExcel:
             df3 = pd.concat([df1, df2])
             features[column] = df3[column]
 
-    	features['t'] =1
+    	
         features = features.astype(np.float64)
 
         x_df = features.reset_index()
