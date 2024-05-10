@@ -17,6 +17,7 @@ from cleandata.cleandata import Aggregator, CleanColumns
 class ReadExcel:
     
     def __init__(self, file_path):
+	# Normalize baseline
         self.normalize = False
         # Open Workbook
         self.wb = openpyxl.load_workbook(filename = file_path, data_only = True)
