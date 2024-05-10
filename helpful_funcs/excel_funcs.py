@@ -229,7 +229,7 @@ class ReadExcel:
 
 	    
         features = features.astype(np.float64)
-    	features['test'] = 1.0
+    	features['test'] = np.float64(1)
 
         x_df = features.reset_index()
         y_df = baseline.reset_index()
