@@ -228,7 +228,9 @@ class ReadExcel:
             features[column] = df3[column]
         
 
-        
+        # add timedelta as feature
+    	features['hours'] = (baseline['To (excl)']-baseline['From (incl)'][i]).total_seconds()/3600
+    	features['days'] = features['hours']*24
         features = features.astype(np.float64)
 
         x_df = features
