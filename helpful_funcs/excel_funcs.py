@@ -244,7 +244,7 @@ class ReadExcel:
         y_df['Timedelta'] = timedelta
 
     	# add timedelta as feature
-    	x_df['hours'] = y_df['Timedelta']
+    	x_df['hours'] = timedelta
 	    
         baseline = self.get_baseline(normalize = False)
 
