@@ -17,7 +17,7 @@ from cleandata.cleandata import Aggregator, CleanColumns
 class ReadExcel:
     
     def __init__(self, file_path):
-        
+        self.normalize = False
         # Open Workbook
         self.wb = openpyxl.load_workbook(filename = file_path, data_only = True)
         sheet = self.wb["Project"]
@@ -120,7 +120,7 @@ class ReadExcel:
         weather_station = w.get_station()
         print(f'Weather station selected: {weather_station.name}')
         
-        baseline = self.get_baseline()
+        baseline = self.get_baseline(normalize=self.normalize)
         self.start = baseline['From (incl)'][0]
         self.end = baseline['To (excl)'][len(baseline)-1]
         
@@ -252,9 +252,9 @@ class ReadExcel:
     def baseline(self):
         if hasattr(self, '_baseline'):
             return self._baseline
-        return self.get_baseline()
+        return self.get_baseline(normalize=self.normalize)
     
-    def get_baseline(self, normalize=True):
+    def get_baseline(self, normalize=False):
         df = self.table_to_df(self.wb['Baseline'], 'Baseline')
         if normalize:
             df['Timedelta'] = df['To (excl)'] - df['From (incl)']
