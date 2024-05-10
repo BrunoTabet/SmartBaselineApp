@@ -257,9 +257,8 @@ class ReadExcel:
     
     def get_baseline(self, normalize=False):
         df = self.table_to_df(self.wb['Baseline'], 'Baseline')
-        if normalize:
-            df['Timedelta'] = df['To (excl)'] - df['From (incl)']
-            df['Normalized baseline'] = df.iloc[:, 2] / (df['Timedelta'] / np.timedelta64(1, 'h'))
+        df['Timedelta'] = df['To (excl)'] - df['From (incl)']
+        df['Normalized baseline'] = df.iloc[:, 2] / (df['Timedelta'] / np.timedelta64(1, 'h')) if normalize else df.iloc[:, 2]
         self._baseline = df
         return df
         
