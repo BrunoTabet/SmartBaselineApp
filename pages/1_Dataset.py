@@ -111,13 +111,13 @@ if st.session_state['file_uploaded'] == 2:
         
         st.session_state['name_sidebar'] = st.session_state['excel'].data['Project name']
         x_df, y_df, baseline = st.session_state['excel'].preprocess_data(st.session_state['file'])
-        """
+        
         clean = CleanColumns(x_df)
         clean.fill_nan()
         clean.remove_nan()
         clean.remove_duplicates()
         x_df = clean.x_df
-        """
+        
         st.session_state['sheet'] = st.session_state['excel'].wb['Project']
         st.session_state['x_df_dataset'] = x_df
         st.session_state['y_df_with_dates'] = y_df[['From (incl)', 'To (excl)', 'Normalized baseline']]
