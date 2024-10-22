@@ -32,7 +32,7 @@ class Aggregator:
                    'wbtemp': ['mean', 'max', 'min','std'],
                    'dptemp': ['mean', 'max', 'min','std'],
                    'ppwvap': ['mean', 'max', 'min','std'],
-                   'enthma': ['mean', 'max', 'min','std'],
+                   'enthma': ['mean', 'max', 'min','std', 'sum'],
                    'spvolma': ['mean', 'max', 'min','std'],
                    'degsat': ['mean', 'max', 'min','std'],
                    'CDD18': ['sum'],
